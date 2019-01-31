@@ -10,9 +10,7 @@ import XCTest
 
 class CountManagerTestCase: XCTestCase {
 
-
-    
-    
-    
-
+    func testExemple() {
+        XCTAssert(true)
+    }
 }

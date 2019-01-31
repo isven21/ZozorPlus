@@ -9,23 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    //MARK: - Vars
+    // MARK: - Vars
     let countManager = CountManager()
-    
-    //MARK: - Outlets
+    // MARK: - Outlets
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        countManager.alertVCPopUpDelegate = self
+    }
 
     // MARK: - Action
     @IBAction func tappedNumberButton(_ sender: UIButton) {
-        for (i, numberButton) in numberButtons.enumerated() {
+        for (number, numberButton) in numberButtons.enumerated() {
             if sender == numberButton {
-                textView.text = countManager.addNewNumber(i)
+                    textView.text = countManager.addNewNumber(number)
             }
         }
     }
-    
     @IBAction func tapOperatorButtons(_ sender: UIButton) {
             switch sender.tag {
             case 0:
@@ -38,7 +39,6 @@ class ViewController: UIViewController {
                 break
             }
     }
-    
     @IBAction func tapClearButton() {
          textView.text = countManager.clear()
     }
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
 
 extension ViewController: alertVCPopUp {
     func alertVC(title: String, message: String) {
-        let alertVC = UIAlertController(title: title , message: message, preferredStyle: .alert)
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)
     }
