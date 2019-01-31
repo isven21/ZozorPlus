@@ -7,10 +7,13 @@
 //
 
 import XCTest
+@testable import CountOnMe
 
 class CountManagerTestCase: XCTestCase {
 
-    func testExemple() {
-        XCTAssert(true)
+    var countManager: CountManager!
+    override func setUp() {
+        super.setUp()
+        countManager = CountManager()
     }
 }

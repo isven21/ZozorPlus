@@ -21,11 +21,9 @@ class ViewController: UIViewController {
 
     // MARK: - Action
     @IBAction func tappedNumberButton(_ sender: UIButton) {
-        for (number, numberButton) in numberButtons.enumerated() {
-            if sender == numberButton {
+        for (number, numberButton) in numberButtons.enumerated() where sender == numberButton {
                     textView.text = countManager.addNewNumber(number)
             }
-        }
     }
     @IBAction func tapOperatorButtons(_ sender: UIButton) {
             switch sender.tag {

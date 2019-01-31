@@ -94,5 +94,5 @@ class CountManager {
                 stringNumbers[stringNumbers.count-1] = stringNumberMutable
             }
         return updateDisplay()
-    }
+        }
 }
