@@ -16,12 +16,6 @@ class ViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        countManager.errorMessageDelegate = self
-    }
 
     // MARK: - Action
     @IBAction func tappedNumberButton(_ sender: UIButton) {
@@ -46,15 +40,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tapClearButton() {
-        countManager.clear()
-        textView.text = ""
+         textView.text = countManager.clear()
     }
 }
 
-extension ViewController: ErrorMessage {
-    func alert(title: String, message: String) {
-        let alert = UIAlertController(title: title , message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+extension ViewController: alertVCPopUp {
+    func alertVC(title: String, message: String) {
+        let alertVC = UIAlertController(title: title , message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
     }
 }

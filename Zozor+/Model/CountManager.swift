@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol ErrorMessage {
-    func alert(title: String, message: String)
+protocol alertVCPopUp {
+    func alertVC(title: String, message: String)
 }
 
 class CountManager {
     
-    var errorMessageDelegate: ErrorMessage?
+    var alertVCPopUpDelegate: alertVCPopUp?
     
     var operators: [String] = ["+"]
     var stringNumbers: [String] = [String()]
@@ -23,9 +23,9 @@ class CountManager {
         if let stringNumber = stringNumbers.last {
             if stringNumber.isEmpty {
                 if stringNumbers.count == 1 {
-                    errorMessageDelegate?.alert(title: "Zéro!", message: "Démarrez un nouveau calcul !")
+                    alertVCPopUpDelegate?.alertVC(title: "Zéro!", message: "Démarrez un nouveau calcul !")
                 } else {
-                    errorMessageDelegate?.alert(title: "Zéro!", message: "Entrez une expression correcte !")
+                    alertVCPopUpDelegate?.alertVC(title: "Zéro!", message: "Entrez une expression correcte !")
                 }
                 return false
             }
@@ -36,7 +36,7 @@ class CountManager {
     var canAddOperator: Bool {
         if let stringNumber = stringNumbers.last {
             if stringNumber.isEmpty {
-                errorMessageDelegate?.alert(title: "Zéro!", message: "Expression incorrecte !")
+                alertVCPopUpDelegate?.alertVC(title: "Zéro!", message: "Expression incorrecte !")
                 return false
             }
         }
@@ -56,9 +56,10 @@ class CountManager {
         return text
     }
     
-    func clear() {
+    func clear() -> String {
         stringNumbers = [String()]
         operators = ["+"]
+            return ""
     }
     
     func plus() -> String {
