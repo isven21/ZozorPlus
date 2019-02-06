@@ -22,30 +22,34 @@ class ViewController: UIViewController {
     // MARK: - Action
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         for (number, numberButton) in numberButtons.enumerated() where sender == numberButton {
-                    textView.text = countManager.addNewNumber(number)
+            if textView.text.contains("=") {
+                countManager.reset()
+                textView.text = countManager.addNewNumber(number)
+            } else {
+                textView.text = countManager.addNewNumber(number)
             }
+        }
     }
     @IBAction func tapOperatorButtons(_ sender: UIButton) {
-            switch sender.tag {
-            case 0:
+            switch sender.title(for: .normal) {
+            case "+":
                     textView.text = countManager.plus()
-            case 1:
+            case "-":
                     textView.text = countManager.minus()
-            case 2:
+            case "=":
                     textView.text = countManager.calculateTotal()
+            case "Discount %":
+                    textView.text = countManager.calculateNumberWithDiscount()
+                    countManager.reset()
             default:
                 break
             }
     }
-    @IBAction func tapClearButton() {
-         textView.text = countManager.clear()
-    }
 }
-
-extension ViewController: alertVCPopUp {
+extension ViewController: AlertVCPopUp {
     func alertVC(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(alertVC, animated: true, completion: nil)
+        present(alertVC, animated: true, completion: nil)
     }
 }

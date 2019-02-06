@@ -22,7 +22,7 @@
                                 <rect key="frame" x="20" y="501.33333333333326" width="374" height="206"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GZQ-ZL-Chx">
-                                        <rect key="frame" x="0.0" y="0.0" width="102" height="206"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="102" height="196"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uw-jf-qlX">
                                                 <rect key="frame" x="0.0" y="0.0" width="102" height="44"/>
@@ -57,15 +57,15 @@
                                                     <action selector="tappedNumberButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wzA-WF-CXf"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v72-Ka-qC3" userLabel="Clear">
-                                                <rect key="frame" x="0.0" y="162.00000000000006" width="102" height="44"/>
-                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Clear">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v72-Ka-qC3" userLabel="discount">
+                                                <rect key="frame" x="0.0" y="162.00000000000006" width="102" height="34"/>
+                                                <color key="backgroundColor" red="0.82770199808977585" green="0.74462502054876301" blue="0.073259154823305972" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="Discount %">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="tapClearButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="rQD-93-I8t"/>
+                                                    <action selector="tapOperatorButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="plg-kw-cS1"/>
                                                 </connections>
                                             </button>
                                         </subviews>

@@ -12,8 +12,23 @@ import XCTest
 class CountManagerTestCase: XCTestCase {
 
     var countManager: CountManager!
-    override func setUp() {
-        super.setUp()
-        countManager = CountManager()
-    }
+
+//    func calculate() {
+//        // add number
+//        countManager.addNewNumber(1)
+//        XCTAssert(countManager.stringNumbers == ["1"])
+//        // plus
+//        countManager.plus()
+//        XCTAssert(countManager.operators == ["+"])
+//        // minus
+//        countManager.minus()
+//        XCTAssert(countManager.operators == ["-"])
+//    }
+//    func test() {
+//        // total
+//        countManager.addNewNumber(2)
+//        countManager.plus()
+//        countManager.addNewNumber(4)
+//        XCTAssert(countManager.calculateTotal == ["6"])
+//    }
 }

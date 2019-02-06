@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol alertVCPopUp {
+protocol AlertVCPopUp: class {
     func alertVC(title: String, message: String)
 }
 
 class CountManager {
-    var alertVCPopUpDelegate: alertVCPopUp!
+    weak var alertVCPopUpDelegate: AlertVCPopUp?
     var operators: [String] = ["+"]
     var stringNumbers: [String] = [String()]
 
@@ -21,9 +21,9 @@ class CountManager {
         if let stringNumber = stringNumbers.last {
             if stringNumber.isEmpty {
                 if stringNumbers.count == 1 {
-                    alertVCPopUpDelegate.alertVC(title: "Zéro!", message: "Démarrez un nouveau calcul !")
+                    alertVCPopUpDelegate?.alertVC(title: "Zéro!", message: "Démarrez un nouveau calcul !")
                 } else {
-                    alertVCPopUpDelegate.alertVC(title: "Zéro!", message: "Entrez une expression correcte !")
+                    alertVCPopUpDelegate?.alertVC(title: "Zéro!", message: "Entrez une expression correcte !")
                 }
                 return false
             }
@@ -33,7 +33,7 @@ class CountManager {
     var canAddOperator: Bool {
         if let stringNumber = stringNumbers.last {
             if stringNumber.isEmpty {
-                alertVCPopUpDelegate.alertVC(title: "Zéro!", message: "Expression incorrecte !")
+                alertVCPopUpDelegate?.alertVC(title: "Zéro!", message: "Expression incorrecte !")
                 return false
             }
         }
@@ -51,10 +51,9 @@ class CountManager {
         }
         return text
     }
-    func clear() -> String {
+    func reset() {
         stringNumbers = [String()]
         operators = ["+"]
-            return ""
     }
     func plus() -> String {
         if canAddOperator {
@@ -94,5 +93,22 @@ class CountManager {
                 stringNumbers[stringNumbers.count-1] = stringNumberMutable
             }
         return updateDisplay()
+    }
+    var canAddDiscount: Bool {
+        if let stringOperator = operators.last {
+            if stringOperator == "-" {
+                return true
+            }
         }
+        alertVCPopUpDelegate?.alertVC(title: "Zéro!", message: "Expression incorrecte !")
+        return false
+    }
+    func calculateNumberWithDiscount() -> String {
+        var stringNumberWithDiscount: Float = 0
+        if canAddDiscount {
+            let percentage = (100-(stringNumbers.last! as NSString).floatValue)/100.0
+            stringNumberWithDiscount = (stringNumbers.first! as NSString).floatValue * percentage
+        }
+        return "\(String(stringNumberWithDiscount))"
+    }
 }
