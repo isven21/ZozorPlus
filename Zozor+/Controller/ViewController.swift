@@ -18,7 +18,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         countManager.alertVCPopUpDelegate = self
     }
-
     // MARK: - Action
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         for (number, numberButton) in numberButtons.enumerated() where sender == numberButton {

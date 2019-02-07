@@ -69,7 +69,6 @@ class CountManager {
         }
         return updateDisplay()
     }
-
     func calculateTotal() -> String {
         if !isExpressionCorrect {
             return ""
@@ -94,15 +93,7 @@ class CountManager {
             }
         return updateDisplay()
     }
-    var canAddDiscount: Bool {
-        if let stringOperator = operators.last {
-            if stringOperator == "-" {
-                return true
-            }
-        }
-        alertVCPopUpDelegate?.alertVC(title: "Zéro!", message: "Expression incorrecte !")
-        return false
-    }
+    // Bonus
     func calculateNumberWithDiscount() -> String {
         var stringNumberWithDiscount: Float = 0
         if canAddDiscount {
@@ -110,5 +101,14 @@ class CountManager {
             stringNumberWithDiscount = (stringNumbers.first! as NSString).floatValue * percentage
         }
         return "\(String(stringNumberWithDiscount))"
+    }
+    var canAddDiscount: Bool {
+        if let stringOperator = operators.last {
+            if stringOperator == "-" {
+                return true
+            }
+        }
+        alertVCPopUpDelegate?.alertVC(title: "Zéro!", message: "Entrez une expression correcte !")
+        return false
     }
 }

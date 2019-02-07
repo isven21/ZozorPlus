@@ -11,24 +11,36 @@ import XCTest
 
 class CountManagerTestCase: XCTestCase {
 
-    var countManager: CountManager!
+    var countManager = CountManager()
 
-//    func calculate() {
-//        // add number
-//        countManager.addNewNumber(1)
-//        XCTAssert(countManager.stringNumbers == ["1"])
-//        // plus
-//        countManager.plus()
-//        XCTAssert(countManager.operators == ["+"])
-//        // minus
-//        countManager.minus()
-//        XCTAssert(countManager.operators == ["-"])
-//    }
-//    func test() {
-//        // total
-//        countManager.addNewNumber(2)
-//        countManager.plus()
-//        countManager.addNewNumber(4)
-//        XCTAssert(countManager.calculateTotal == ["6"])
-//    }
+    func testAddOperatorPlus() {
+        _ = countManager.plus()
+        XCTAssertEqual(countManager.operators.last, "+")
+    }
+    func testAddOperatorMinus() {
+        _ = countManager.minus()
+        XCTAssertEqual(countManager.operators.last, "-")
+    }
+    func testAddNewNumber() {
+        _ = countManager.addNewNumber(1)
+        XCTAssert(countManager.stringNumbers.last == "1")
+    }
+    func testCalculateTotal() {
+        _ = countManager.addNewNumber(2)
+        _ = countManager.plus()
+        _ = countManager.addNewNumber(5)
+        _ = countManager.minus()
+        _ = countManager.addNewNumber(1)
+        XCTAssert(countManager.calculateTotal() == "2+5-1=6")
+    }
+    func testCanAddDiscount() {
+        _ = countManager.operators.last != "-"
+        XCTAssert(countManager.canAddDiscount == false)
+    }
+    func testDiscount() {
+        _ = countManager.addNewNumber(15)
+        _ = countManager.minus()
+        _ = countManager.addNewNumber(33)
+        XCTAssert(countManager.calculateNumberWithDiscount() == "10.05")
+    }
 }
