@@ -13,7 +13,7 @@
 		C926DAE41D7581BB00477020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C926DAE31D7581BB00477020 /* Assets.xcassets */; };
 		C926DAE71D7581BB00477020 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C926DAE51D7581BB00477020 /* LaunchScreen.storyboard */; };
 		CC990D9121F0BB7700A0CE2F /* CountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC990D9021F0BB7700A0CE2F /* CountManager.swift */; };
-		CCAC6A2622038B1100ED0E95 /* CountManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC6A2522038B1100ED0E95 /* CountManagerTestCase.swift */; };
+		CCDE65442210744D0056A10A /* CountManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE65432210744D0056A10A /* CountManagerTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 		CC990D9021F0BB7700A0CE2F /* CountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountManager.swift; sourceTree = "<group>"; };
 		CCAC6A1B22038A2D00ED0E95 /* CountOnMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountOnMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCAC6A1F22038A2E00ED0E95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CCAC6A2522038B1100ED0E95 /* CountManagerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountManagerTestCase.swift; sourceTree = "<group>"; };
+		CCDE65432210744D0056A10A /* CountManagerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountManagerTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +126,8 @@
 		CCAC6A1C22038A2E00ED0E95 /* CountOnMeTests */ = {
 			isa = PBXGroup;
 			children = (
+				CCDE65432210744D0056A10A /* CountManagerTestCase.swift */,
 				CCAC6A1F22038A2E00ED0E95 /* Info.plist */,
-				CCAC6A2522038B1100ED0E95 /* CountManagerTestCase.swift */,
 			);
 			path = CountOnMeTests;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCAC6A2622038B1100ED0E95 /* CountManagerTestCase.swift in Sources */,
+				CCDE65442210744D0056A10A /* CountManagerTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,7 +2,7 @@
 //  CountManagerTestCase.swift
 //  CountOnMeTests
 //
-//  Created by iSven on 31/01/2019.
+//  Created by iSven on 10/02/2019.
 //  Copyright © 2019 Ambroise Collon. All rights reserved.
 //
 
@@ -10,28 +10,33 @@ import XCTest
 @testable import CountOnMe
 
 class CountManagerTestCase: XCTestCase {
-
     var countManager = CountManager()
-
-    func testAddOperatorPlus() {
-        _ = countManager.plus()
-        XCTAssertEqual(countManager.operators.last, "+")
-    }
-    func testAddOperatorMinus() {
-        _ = countManager.minus()
-        XCTAssertEqual(countManager.operators.last, "-")
-    }
+    var viewController = ViewController()
     func testAddNewNumber() {
         _ = countManager.addNewNumber(1)
         XCTAssert(countManager.stringNumbers.last == "1")
     }
-    func testCalculateTotal() {
+    func testCalculateTotal1() {
         _ = countManager.addNewNumber(2)
         _ = countManager.plus()
         _ = countManager.addNewNumber(5)
         _ = countManager.minus()
         _ = countManager.addNewNumber(1)
         XCTAssert(countManager.calculateTotal() == "2+5-1=6")
+    }
+    func testcalculateTotal2() {
+        _ = countManager.isExpressionCorrect == false
+        XCTAssert(countManager.calculateTotal() == "")
+    }
+    func testIsExpressionCorrect1() {
+        _ = countManager.addNewNumber(1)
+        _ = countManager.plus()
+        XCTAssertFalse(countManager.isExpressionCorrect)
+    }
+    func testCanAddOperator() {
+        _ = countManager.operators.last?.isEmpty
+        _ = countManager.stringNumbers.count != 1
+        XCTAssert(countManager.canAddOperator == false)
     }
     func testCanAddDiscount() {
         _ = countManager.operators.last != "-"
@@ -42,5 +47,10 @@ class CountManagerTestCase: XCTestCase {
         _ = countManager.minus()
         _ = countManager.addNewNumber(33)
         XCTAssert(countManager.calculateNumberWithDiscount() == "10.05")
+    }
+    func testReset() {
+        _ = countManager.reset()
+        XCTAssert(countManager.operators == ["+"])
+        XCTAssert(countManager.stringNumbers == [""])
     }
 }
