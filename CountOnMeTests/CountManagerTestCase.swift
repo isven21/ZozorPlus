@@ -10,8 +10,9 @@ import XCTest
 @testable import CountOnMe
 
 class CountManagerTestCase: XCTestCase {
+    // MARK: - Properties
     var countManager = CountManager()
-    var viewController = ViewController()
+    // MARK: - Tests
     func testAddNewNumber() {
         _ = countManager.addNewNumber(1)
         XCTAssert(countManager.stringNumbers.last == "1")
@@ -28,7 +29,7 @@ class CountManagerTestCase: XCTestCase {
         _ = countManager.isExpressionCorrect == false
         XCTAssert(countManager.calculateTotal() == "")
     }
-    func testIsExpressionCorrect1() {
+    func testIsExpressionCorrect() {
         _ = countManager.addNewNumber(1)
         _ = countManager.plus()
         XCTAssertFalse(countManager.isExpressionCorrect)

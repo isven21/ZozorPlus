@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         countManager.alertVCPopUpDelegate = self
     }
     // MARK: - Action
+    // Action touch up inside on number Button
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         for (number, numberButton) in numberButtons.enumerated() where sender == numberButton {
             if textView.text.contains("=") {
@@ -29,6 +30,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    // Action touch up inside on operator Button
     @IBAction func tapOperatorButtons(_ sender: UIButton) {
             switch sender.title(for: .normal) {
             case "+":

@@ -8,15 +8,17 @@
 
 import Foundation
 
+// MARK: - Protocol
 protocol AlertVCPopUp: class {
     func alertVC(title: String, message: String)
 }
 
 class CountManager {
+    // MARK: - Properties
     weak var alertVCPopUpDelegate: AlertVCPopUp?
     var operators: [String] = ["+"]
     var stringNumbers: [String] = [String()]
-
+    // Call in calculateTotal() - alertPopup if invalid touch up inside
     var isExpressionCorrect: Bool {
         if let stringNumber = stringNumbers.last {
             if stringNumber.isEmpty {
@@ -30,6 +32,7 @@ class CountManager {
         }
         return true
     }
+    // Call in plus() & minus() - alertPopup if invalid touch up inside
     var canAddOperator: Bool {
         if let stringNumber = stringNumbers.last {
             if stringNumber.isEmpty {
@@ -39,6 +42,18 @@ class CountManager {
         }
         return true
     }
+    // Call in calculateNumberWithDiscount() - alertPopup if invalid touch up inside
+    var canAddDiscount: Bool {
+        if let stringOperator = operators.last {
+            if stringOperator == "-" {
+                return true
+            }
+        }
+        alertVCPopUpDelegate?.alertVC(title: "Zéro!", message: "Entrez une expression correcte !")
+        return false
+    }
+    // MARK: - Methods
+    // Update display on text view
     func updateDisplay() -> String {
         var text = ""
         for (num, stringNumber) in stringNumbers.enumerated() {
@@ -51,10 +66,12 @@ class CountManager {
         }
         return text
     }
+    // Clear properties "operators" & "stringNumbers"
     func reset() {
         stringNumbers = [String()]
         operators = ["+"]
     }
+    // add up
     func plus() -> String {
         if canAddOperator {
             operators.append("+")
@@ -62,6 +79,7 @@ class CountManager {
         }
         return updateDisplay()
     }
+    // subtract
     func minus() -> String {
         if canAddOperator {
             operators.append("-")
@@ -69,6 +87,7 @@ class CountManager {
         }
         return updateDisplay()
     }
+    // Calculate result
     func calculateTotal() -> String {
         if !isExpressionCorrect {
             return ""
@@ -85,6 +104,7 @@ class CountManager {
             }
         return "\(updateDisplay())=\(String(total))"
     }
+    // add number
     func addNewNumber(_ newNumber: Int) -> String {
             if let stringNumber = stringNumbers.last {
                 var stringNumberMutable = stringNumber
@@ -93,7 +113,7 @@ class CountManager {
             }
         return updateDisplay()
     }
-    // Bonus
+    // Bonus discount button
     func calculateNumberWithDiscount() -> String {
         var stringNumberWithDiscount: Float = 0
         if canAddDiscount {
@@ -102,13 +122,5 @@ class CountManager {
         }
         return "\(String(stringNumberWithDiscount))"
     }
-    var canAddDiscount: Bool {
-        if let stringOperator = operators.last {
-            if stringOperator == "-" {
-                return true
-            }
-        }
-        alertVCPopUpDelegate?.alertVC(title: "Zéro!", message: "Entrez une expression correcte !")
-        return false
-    }
+
 }
