@@ -22,7 +22,7 @@
                                 <rect key="frame" x="20" y="501.33333333333326" width="374" height="206"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GZQ-ZL-Chx">
-                                        <rect key="frame" x="0.0" y="0.0" width="102" height="196"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="102" height="206"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uw-jf-qlX">
                                                 <rect key="frame" x="0.0" y="0.0" width="102" height="44"/>
@@ -57,12 +57,12 @@
                                                     <action selector="tappedNumberButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wzA-WF-CXf"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v72-Ka-qC3" userLabel="discount">
-                                                <rect key="frame" x="0.0" y="162.00000000000006" width="102" height="34"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="v72-Ka-qC3" userLabel="discount">
+                                                <rect key="frame" x="0.0" y="162.00000000000006" width="102" height="44"/>
                                                 <color key="backgroundColor" red="0.82770199808977585" green="0.74462502054876301" blue="0.073259154823305972" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                 <state key="normal" title="Discount %">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="tapOperatorButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="plg-kw-cS1"/>
@@ -174,6 +174,7 @@
                                 <constraints>
                                     <constraint firstItem="5iN-WA-tqI" firstAttribute="centerY" secondItem="cKJ-lP-BeQ" secondAttribute="centerY" id="0r5-yM-km0"/>
                                     <constraint firstAttribute="width" secondItem="aiF-me-Far" secondAttribute="height" multiplier="4:3" id="Pye-fn-hOb"/>
+                                    <constraint firstItem="v72-Ka-qC3" firstAttribute="height" secondItem="GgJ-QU-2gW" secondAttribute="height" id="WxG-VA-fe2"/>
                                     <constraint firstItem="p3X-cI-gqf" firstAttribute="centerY" secondItem="86l-DO-J8m" secondAttribute="centerY" id="hgB-DF-utN"/>
                                 </constraints>
                                 <variation key="default">
@@ -191,13 +192,6 @@
                                     </mask>
                                 </variation>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1+1=2" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="CT0-fb-Raf">
-                                <rect key="frame" x="20" y="44.999999999999972" width="374" height="426.33333333333326"/>
-                                <color key="backgroundColor" red="0.24527746819999999" green="0.53481305040000005" blue="0.58749136739999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="JCS-G8-93l">
                                 <rect key="frame" x="20" y="727.33333333333337" width="374" height="114.66666666666663"/>
                                 <subviews>
@@ -240,6 +234,13 @@
                                     <constraint firstItem="D9e-qZ-ZAT" firstAttribute="width" secondItem="u9t-JB-KHx" secondAttribute="height" multiplier="1:1" id="KGM-5j-4Km"/>
                                 </constraints>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1+1=2" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="CT0-fb-Raf">
+                                <rect key="frame" x="20" y="44.999999999999972" width="374" height="426.33333333333326"/>
+                                <color key="backgroundColor" red="0.24527746819999999" green="0.53481305040000005" blue="0.58749136739999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.875366885359116" green="0.84808511391900776" blue="0.83804947389843787" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
