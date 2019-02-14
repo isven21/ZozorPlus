@@ -54,7 +54,7 @@ class CountManager {
     }
     // MARK: - Methods
     // Update display on text view
-    func updateDisplay() -> String {
+    private func updateDisplay() -> String {
         var text = ""
         for (num, stringNumber) in stringNumbers.enumerated() {
             // Add operator
