@@ -32,14 +32,14 @@ class ViewController: UIViewController {
     }
     // Action touch up inside on operator Button
     @IBAction func tapOperatorButtons(_ sender: UIButton) {
-            switch sender.title(for: .normal) {
-            case "+":
+            switch sender.tag {
+            case 0:
                     textView.text = countManager.plus()
-            case "-":
+            case 1:
                     textView.text = countManager.minus()
-            case "=":
+            case 2:
                     textView.text = countManager.calculateTotal()
-            case "Discount %":
+            case 3:
                     textView.text = countManager.calculateNumberWithDiscount()
                     countManager.reset()
             default:
